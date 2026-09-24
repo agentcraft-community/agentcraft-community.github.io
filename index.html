@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Craft</title>
+  <meta name="description" content="Agent Craft is a community for developers building with AI agents. Meetups, demos and conversation." />
+
+  <!-- Social preview (uses the Luma event image) -->
+  <meta property="og:title" content="Agent Craft" />
+  <meta property="og:description" content="A community for developers building with AI agents." />
+  <meta property="og:image" content="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,anim=false,background=white,quality=75,width=800,height=420/event-social/kq/1474b715-e2c2-4f7b-954e-9e3ff49ad584.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0e0d0b;
+      --surface: #181612;
+      --surface-2: #211e19;
+      --line: #2e2a23;
+      --text: #f3eee4;
+      --muted: #a79f90;
+      --accent: #ff9b3d;
+      --accent-2: #ffc46b;
+      --discord: #5865f2;
+      --reddit: #ff4500;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(255,155,61,0.14), transparent 60%),
+        radial-gradient(700px 400px at -10% 30%, rgba(255,196,107,0.07), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Header ---------- */
+    header { padding: 56px 0 36px; }
+
+    .brand {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent);
+    }
+    .brand::before {
+      content: ""; width: 10px; height: 10px; border-radius: 3px;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(44px, 8vw, 84px);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-top: 18px;
+    }
+    h1 span { color: var(--accent); }
+
+    .lede {
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 20px);
+      max-width: 620px;
+      margin-top: 18px;
+    }
+
+    /* ---------- Event banner ---------- */
+    .event {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      background: linear-gradient(180deg, var(--surface-2), var(--surface));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 80px -30px rgba(255,155,61,0.25);
+    }
+    .event::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .event-img { background: #000; }
+    .event-img img {
+      width: 100%; height: 100%; min-height: 300px;
+      object-fit: cover; display: block;
+    }
+
+    .event-body { padding: 30px 32px 32px; }
+
+    .tag {
+      display: inline-block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--bg); background: var(--accent);
+      padding: 4px 10px; border-radius: 999px;
+    }
+
+    .event h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(26px, 3.4vw, 34px);
+      line-height: 1.15;
+      margin: 14px 0 12px;
+    }
+
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 8px 22px;
+      color: var(--muted); font-size: 15px;
+      margin-bottom: 16px;
+    }
+    .meta b { color: var(--text); font-weight: 600; }
+
+    .event p.desc { color: var(--muted); margin-bottom: 18px; }
+
+    .talks { display: grid; gap: 10px; margin-bottom: 24px; }
+    .talk {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 15px;
+    }
+    .talk strong { color: var(--text); }
+    .talk span { color: var(--muted); display: block; font-size: 14px; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font: 600 15px "Inter", sans-serif;
+      padding: 13px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--accent); color: #1a1208;
+      box-shadow: 0 10px 30px -10px rgba(255,155,61,0.7);
+    }
+    .btn-primary:hover { background: var(--accent-2); }
+
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border-color: var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--muted); }
+
+    /* ---------- Luma embed ---------- */
+    section { margin-top: 64px; }
+
+    .section-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .embed {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+    }
+    .embed iframe {
+      display: block; width: 100%; height: 480px;
+      border: 0; border-radius: 12px;
+      background: #fff;
+    }
+
+    /* ---------- Community links ---------- */
+    .community {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      display: flex; align-items: center; gap: 18px;
+      padding: 22px 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--text); text-decoration: none;
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card.discord:hover { border-color: var(--discord); box-shadow: 0 16px 40px -20px var(--discord); }
+    .card.reddit:hover  { border-color: var(--reddit);  box-shadow: 0 16px 40px -20px var(--reddit); }
+    .card.github:hover  { border-color: var(--muted);   box-shadow: 0 16px 40px -20px rgba(255,255,255,0.35); }
+
+    .icon {
+      flex: none;
+      width: 56px; height: 56px; border-radius: 14px;
+      display: grid; place-items: center;
+    }
+    .discord .icon { background: var(--discord); }
+    .reddit  .icon { background: var(--reddit); }
+    .github  .icon { background: #2b2b2b; border: 1px solid #3d3d3d; }
+    .icon img { width: 30px; height: 30px; filter: invert(1); }
+
+    .card h3 { font-size: 18px; font-weight: 600; }
+    .card p { color: var(--muted); font-size: 14px; }
+    .card .arrow { margin-left: auto; color: var(--muted); font-size: 22px; transition: transform .15s; }
+    .card:hover .arrow { transform: translateX(4px); color: var(--text); }
+
+    /* ---------- Past events ---------- */
+    .past {
+      display: flex; align-items: center; gap: 16px;
+      margin-top: 48px;
+      padding: 18px 22px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--text); text-decoration: none;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .past:hover { border-color: var(--accent); background: rgba(255,155,61,0.05); }
+    .past strong { display: block; font-weight: 600; }
+    .past small { color: var(--muted); font-size: 14px; }
+    .past .arrow { margin-left: auto; color: var(--muted); font-size: 22px; transition: transform .15s; }
+    .past:hover .arrow { transform: translateX(4px); color: var(--accent); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin: 80px 0 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    }
+    footer a { color: var(--muted); }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 760px) {
+      header { padding: 40px 0 28px; }
+      .event { grid-template-columns: 1fr; }
+      .event-img img { min-height: 0; aspect-ratio: 1 / 1; }
+      .event-body { padding: 24px 20px 24px; }
+      .community { grid-template-columns: 1fr; }
+      .embed iframe { height: 560px; }
+      .btn { flex: 1 1 auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== Header ===== -->
+    <header>
+      <div class="brand">Agent Craft</div>
+      <h1>Building with <span>AI agents</span>, together.</h1>
+      <p class="lede">
+        A community for developers who work alongside AI coding agents. We meet up,
+        demo what we've built, and share what actually works day to day.
+      </p>
+    </header>
+
+    <!-- ===== Next meetup banner ===== -->
+    <article class="event">
+      <div class="event-img">
+        <img
+          src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/yn/147b580d-9497-475d-855e-02e5166e8ad3.jpg"
+          alt="Agent Craft GenAI Meetup cover image" />
+      </div>
+
+      <div class="event-body">
+        <span class="tag">Next meetup</span>
+        <h2>Agent Craft GenAI Meetup</h2>
+
+        <div class="meta">
+          <div>📅 <b>Wednesday 30 September</b> · 19:00 – 21:00</div>
+          <div>📍 <b>Two Brews</b>, 11 Church St, Colchester</div>
+        </div>
+
+        <p class="desc">
+          Back for the autumn with the latest in GenAI and excellent beer. Two local developers
+          show the home-made dashboards they built to keep up with more branches, more pull
+          requests and more agents running in parallel.
+        </p>
+
+        <div class="talks">
+          <div class="talk">
+            <strong>📋 PR Board</strong> · Yanis
+            <span>Every open pull request in one view: what needs review, what's blocked, what's ready to merge.</span>
+          </div>
+          <div class="talk">
+            <strong>🖥️ cmux-control-plane</strong> · Dan
+            <span>One control panel for seeing, steering and managing multiple agent sessions.</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <!-- Opens Luma's registration popup; falls back to the event page -->
+          <a class="btn btn-primary"
+             href="https://luma.com/qso70on1"
+             data-luma-action="checkout"
+             data-luma-event-id="evt-yI9UQ7AZ4BqsFGu">
+            Register on Luma →
+          </a>
+          <a class="btn btn-ghost" href="https://luma.com/qso70on1" target="_blank" rel="noopener">
+            View event page
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== Community links ===== -->
+    <section>
+      <div class="section-title">// Join the community</div>
+      <div class="community">
+        <a class="card discord" href="https://discord.com/invite/YCfbjajGU3" target="_blank" rel="noopener">
+          <div class="icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/discord.svg" alt="" />
+          </div>
+          <div>
+            <h3>Discord</h3>
+            <p>Chat, share setups and get help between meetups.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="card reddit" href="https://www.reddit.com/r/agentcraftai/" target="_blank" rel="noopener">
+          <div class="icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/reddit.svg" alt="" />
+          </div>
+          <div>
+            <h3>Reddit</h3>
+            <p>Longer write-ups, demos and discussion threads.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="card github" href="https://github.com/agentcraft-community" target="_blank" rel="noopener">
+          <div class="icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/github.svg" alt="" />
+          </div>
+          <div>
+            <h3>GitHub</h3>
+            <p>Code from the talks, tools and community projects.</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Past events link ===== -->
+    <!-- EDIT: point this at your Luma calendar (shows all past events) -->
+    <a class="past" href="https://luma.com/YOUR-CALENDAR" target="_blank" rel="noopener">
+      <span>
+        <strong>Past events</strong>
+        <small>Talks, demos and write-ups from previous meetups</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <footer>
+      <span>© Agent Craft</span>
+      <span>Meetups in Colchester · Community everywhere</span>
+    </footer>
+
+  </div>
+
+  <!-- Luma registration popup script -->
+  <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
+</body>
+</html>
