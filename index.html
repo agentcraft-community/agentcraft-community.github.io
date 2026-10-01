@@ -136,6 +136,8 @@
     .talk span { color: var(--muted); display: block; font-size: 14px; }
 
     .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .next-local { color: var(--muted); font-size: 14px; margin-top: 18px; }
+    .next-local b { color: var(--text); font-weight: 600; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -269,52 +271,53 @@
       </p>
     </header>
 
-    <!-- ===== Next meetup banner ===== -->
+    <!-- ===== Next event banner ===== -->
     <article class="event">
       <div class="event-img">
         <img
-          src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/yn/147b580d-9497-475d-855e-02e5166e8ad3.jpg"
-          alt="Agent Craft GenAI Meetup cover image" />
+          src="https://images.unsplash.com/photo-1679057001914-59ab4131dfff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
+          alt="Online Agent Craft GenAi Meetup cover image" />
       </div>
 
       <div class="event-body">
-        <span class="tag">Next meetup</span>
-        <h2>Agent Craft GenAI Meetup</h2>
+        <span class="tag">Next event · Online</span>
+        <h2>Online Agent Craft GenAi Meetup</h2>
 
         <div class="meta">
-          <div>📅 <b>Wednesday 30 September</b> · 19:00 – 21:00</div>
-          <div>📍 <b>Two Brews</b>, 11 Church St, Colchester</div>
+          <div>📅 <b>Wednesday 14 October</b> · 19:00 – 20:30 UK</div>
+          <div>💻 <b>Discord Stage</b>, #digital-meetup</div>
         </div>
 
         <p class="desc">
-          Back for the autumn with the latest in GenAI and excellent beer. Two local developers
-          show the home-made dashboards they built to keep up with more branches, more pull
-          requests and more agents running in parallel.
+          The first Agent Craft Online. Talks, demos and open discussion on building software
+          with AI, from wherever you are. No travel, same honest show-and-tell.
         </p>
 
         <div class="talks">
           <div class="talk">
-            <strong>📋 PR Board</strong> · Yanis
-            <span>Every open pull request in one view: what needs review, what's blocked, what's ready to merge.</span>
+            <strong>🧠 System One models</strong> · Yanis
+            <span>Models that take a state and return typed decisions with calibrated probabilities, not text. A look at TypeSafe's Jev and when you'd use it instead of a reasoning model.</span>
           </div>
           <div class="talk">
-            <strong>🖥️ cmux-control-plane</strong> · Dan
-            <span>One control panel for seeing, steering and managing multiple agent sessions.</span>
+            <strong>🎙️ Open floor</strong>
+            <span>Bring a question, a workflow or something you've been building. Listen in or raise a hand to speak.</span>
           </div>
         </div>
 
         <div class="actions">
           <!-- Opens Luma's registration popup; falls back to the event page -->
           <a class="btn btn-primary"
-             href="https://luma.com/qso70on1"
+             href="https://luma.com/pmav9ewa"
              data-luma-action="checkout"
-             data-luma-event-id="evt-yI9UQ7AZ4BqsFGu">
+             data-luma-event-id="evt-xNYUeIkXTCXxCTP">
             Register on Luma →
           </a>
-          <a class="btn btn-ghost" href="https://luma.com/qso70on1" target="_blank" rel="noopener">
-            View event page
+          <a class="btn btn-ghost" href="https://discord.gg/7ztTXD7DX3?event=1552822809540038697" target="_blank" rel="noopener">
+            Join on Discord
           </a>
         </div>
+
+        <p class="next-local">🍻 Next in Colchester: <b>Wednesday 28 October</b>. Details soon.</p>
       </div>
     </article>
 
