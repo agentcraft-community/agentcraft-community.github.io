@@ -26,7 +26,6 @@
       --accent: #ff9b3d;
       --accent-2: #ffc46b;
       --discord: #5865f2;
-      --reddit: #ff4500;
       --radius: 18px;
     }
 
@@ -202,7 +201,6 @@
     }
     .card:hover { transform: translateY(-3px); }
     .card.discord:hover { border-color: var(--discord); box-shadow: 0 16px 40px -20px var(--discord); }
-    .card.reddit:hover  { border-color: var(--reddit);  box-shadow: 0 16px 40px -20px var(--reddit); }
     .card.github:hover  { border-color: var(--muted);   box-shadow: 0 16px 40px -20px rgba(255,255,255,0.35); }
 
     .icon {
@@ -211,7 +209,6 @@
       display: grid; place-items: center;
     }
     .discord .icon { background: var(--discord); }
-    .reddit  .icon { background: var(--reddit); }
     .github  .icon { background: #2b2b2b; border: 1px solid #3d3d3d; }
     .icon img { width: 30px; height: 30px; filter: invert(1); }
 
@@ -332,17 +329,6 @@
           <div>
             <h3>Discord</h3>
             <p>Chat, share setups and get help between meetups.</p>
-          </div>
-          <span class="arrow">→</span>
-        </a>
-
-        <a class="card reddit" href="https://www.reddit.com/r/agentcraftai/" target="_blank" rel="noopener">
-          <div class="icon">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/reddit.svg" alt="" />
-          </div>
-          <div>
-            <h3>Reddit</h3>
-            <p>Longer write-ups, demos and discussion threads.</p>
           </div>
           <span class="arrow">→</span>
         </a>
